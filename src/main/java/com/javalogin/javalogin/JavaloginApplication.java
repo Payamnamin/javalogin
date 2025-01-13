@@ -25,11 +25,14 @@ public class JavaloginApplication {
     }
 
 	@Bean
-	CommandLineRunner loadData(ProductRepository productRepository) {
-        return args -> {
+CommandLineRunner loadData(ProductRepository productRepository) {
+    return args -> {
+        // بررسی اینکه آیا محصولی در دیتابیس وجود دارد یا نه
+        if (productRepository.count() == 0) {
             productRepository.save(new Product("Laptop", "High-performance laptop", 1200.0, "https://via.placeholder.com/150"));
             productRepository.save(new Product("Smartphone", "Latest model smartphone", 800.0, "https://via.placeholder.com/150"));
             productRepository.save(new Product("Headphones", "Noise-cancelling headphones", 200.0, "https://via.placeholder.com/150"));
+         }
        };
     }
 	
