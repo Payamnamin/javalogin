@@ -26,7 +26,6 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    // Getters و Setters
     public Long getId() {
         return id;
     }
@@ -66,4 +65,9 @@ public class Product {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    
+
+    
+
 }

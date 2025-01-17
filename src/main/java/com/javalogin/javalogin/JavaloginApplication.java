@@ -20,7 +20,7 @@ public class JavaloginApplication {
 	@Bean
     CommandLineRunner run(UserRepository userRepository) {
         return args -> {
-            userRepository.save(new User("testuser", "password"));
+            userRepository.save(new User("testuser", "password", "test@example.com", "John", "Doe"));
         };
     }
 

@@ -14,11 +14,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/register", "/css/**", "/js/**").permitAll() // دسترسی آزاد به این مسیرها
-                .anyRequest().authenticated() // بقیه مسیرها نیاز به ورود به سیستم دارند
+                .requestMatchers("/register", "/css/**", "/js/**").permitAll() 
+                .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login") // فرم ورود پیش‌فرض
+                .loginPage("/login") 
                 .permitAll()
             )
             .logout(logout -> logout
@@ -31,6 +31,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // برای رمزنگاری رمز عبور
+        return new BCryptPasswordEncoder();
     }
 }
