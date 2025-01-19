@@ -1,29 +1,22 @@
 package com.javalogin.javalogin.controller;
 
-import com.javalogin.javalogin.model.User;
-import com.javalogin.javalogin.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-
-    @Autowired
-    private UserRepository userRepository;
-
     @GetMapping("/register")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new User());
-        return "register";
+    public String register() {
+        return "register"; // فایل register.html
     }
 
-    @PostMapping("/register")
-    public String registerUser(@ModelAttribute User user) {
-        userRepository.save(user);
-        return "redirect:/";
+    @GetMapping("/mina-ordrar")
+    public String minaOrdrar() {
+        return "mina-ordrar"; // فایل mina-ordrar.html
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login"; // فایل login.html (در صورت نیاز سفارشی‌سازی شود)
     }
 }

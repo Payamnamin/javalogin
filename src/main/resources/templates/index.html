@@ -4,7 +4,7 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Welcome to Our Store</h1>
+    <h1>Welcome to P Store</h1>
     <div>
         <h2>Products:</h2>
         <ul>
@@ -16,6 +16,13 @@
                 <img th:src="${product.imageUrl}" alt="Product Image" width="150">
             </li>
         </ul>
+    </div>
+    <div>
+        <!-- لینک‌های لاگین، لاگ‌اوت و ثبت‌نام -->
+        <a th:href="@{/register}" th:if="${#authentication == null}">Registrera</a>
+        <a th:href="@{/login}" th:if="${#authentication == null}">Logga in</a>
+        <a th:href="@{/logout}" th:if="${#authentication != null}">Logga ut</a>
+        <a th:href="@{/mina-ordrar}" th:if="${#authentication != null}">Mina ordrar</a>
     </div>
 </body>
 </html>

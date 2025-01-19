@@ -14,18 +14,22 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/register", "/css/**", "/js/**").permitAll() 
-                .anyRequest().authenticated()
+                .requestMatchers("/", "/register", "/login", "/css/**", "/js/**").permitAll()
+                .requestMatchers("/mina-ordrar").authenticated()
+                .anyRequest().permitAll()
             )
             .formLogin(form -> form
-                .loginPage("/login") 
+                .loginPage("/login")
+                .defaultSuccessUrl("/", true)
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
                 .permitAll()
             );
+
         return http.build();
     }
 
