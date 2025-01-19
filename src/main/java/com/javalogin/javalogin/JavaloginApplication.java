@@ -20,14 +20,14 @@ public class JavaloginApplication {
 	@Bean
     CommandLineRunner run(UserRepository userRepository) {
         return args -> {
-            userRepository.save(new User("testuser", "password", "test@example.com", "John", "Doe"));
+            userRepository.save(new User("testuser", "password", "test@example.com", "John", "Doe")); // Create a new user.
         };
     }
 
 	@Bean
 CommandLineRunner loadData(ProductRepository productRepository) {
     return args -> {
-        // بررسی اینکه آیا محصولی در دیتابیس وجود دارد یا نه
+        // Check if the database is emty or there is spme products in it.
         if (productRepository.count() == 0) {
             productRepository.save(new Product("Laptop", "High-performance laptop", 1200.0, "/images/laptop.jpg"));
             productRepository.save(new Product("Smartphone", "Latest model smartphone", 800.0, "/images/iphone.jpg"));
