@@ -19,10 +19,10 @@
     </div>
     <div>
         <!-- لینک‌های لاگین، لاگ‌اوت و ثبت‌نام -->
-        <a th:href="@{/register}" th:if="${#authentication == null}">Registrera</a>
-        <a th:href="@{/login}" th:if="${#authentication == null}">Logga in</a>
-        <a th:href="@{/logout}" th:if="${#authentication != null}">Logga ut</a>
-        <a th:href="@{/mina-ordrar}" th:if="${#authentication != null}">Mina ordrar</a>
+        <a th:href="@{/register}" th:if="${#authentication == null}">Registration</a>
+        <a th:href="@{/login}" th:if="${#authentication == null}">Logg in</a>
+        <a th:href="@{/logout}" th:if="${#authentication != null}">Logg out</a>
+        <a th:href="@{/mina-ordrar}" th:if="${#authentication != null}">My orders</a>
     </div>
 </body>
 </html>
